@@ -3,6 +3,9 @@ import {
   Logo,
   QuickLink
 } from './Extension.js'
+import {
+  HeroPage
+}from './HeroPage.js'
 export const Header = {
   logo : Logo,
   navigation : Navigation,
@@ -23,7 +26,7 @@ export const Main = {
     const title = document.createElement('h1')
     title.textContent = 'Main'
     containner.append(
-      title
+      HeroPage.render()
     )
     return containner
   }
