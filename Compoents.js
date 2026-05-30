@@ -1,20 +1,15 @@
 import {
-  Navigation
-}
-from './Extension.js'
+  Navigation,
+  Logo
+} from './Extension.js'
 export const Header = {
-  logo : 'Mjs',
+  logo : Logo,
   navigation : Navigation,
   render() {
     const containner = document.createElement('header')
 
-    const label = document.createElement('h1')
-    label.textContent = this.logo
-
-    
-
     containner.append(
-      label,
+      this.logo.render(),
       this.navigation.render()
     )
     return containner

@@ -1,3 +1,19 @@
+export const Logo ={
+  item : {
+    name : 'Mjs',
+    link : '#'
+  },
+  render() {
+    const div = document.createElement('div')
+    const a = document.createElement('a')
+
+    a.href = this.item.link
+    a.textContent = this.item.name
+    
+    div.append(a)
+    return div
+  }
+}
 export const Navigation = {
   item :[
     {
