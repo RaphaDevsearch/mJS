@@ -47,3 +47,42 @@ export const Navigation = {
     return nav
   }
 }
+
+export const QuickLink = {
+  items: [
+    {
+      label: 'Home',
+      href: '#home'
+    },
+    {
+      label: 'About',
+      href: '#about'
+    },
+    {
+      label: 'Contact',
+      href: '#contact'
+    }
+  ],
+
+  style : 'quick-links',
+  render() {
+    const nav = document.createElement('nav');
+    const ul = document.createElement('ul');
+    ul.classList.add(this.style)
+
+    this.items.forEach(item => {
+      const li = document.createElement('li');
+
+      const a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = item.label;
+
+      li.append(a);
+      ul.append(li);
+    });
+
+    nav.append(ul);
+
+    return nav;
+  }
+};

@@ -1,6 +1,7 @@
 import {
   Navigation,
-  Logo
+  Logo,
+  QuickLink
 } from './Extension.js'
 export const Header = {
   logo : Logo,
@@ -28,13 +29,33 @@ export const Main = {
   }
 }
 export const Footer = {
+  logo : Logo,
+  quickLink : QuickLink,
+  copyRight : 'Copyright 2026',
+
+  right(){
+    const div = document.createElement('div')
+    div.append(
+      this.quickLink.render(),
+      this.quickLink.render(),
+      this.quickLink.render()
+    )
+    return div
+  },
+
   render() {
     const containner = document.createElement('footer')
-    const title = document.createElement('h1')
-    title.textContent = 'Footer'
+    
     containner.append(
-      title
+      this.right(),
+      this.copyRight
     )
     return containner
   }
 }
+
+/**
+ * here are the anothere extension 
+ * like component iside the footer
+ */
+
