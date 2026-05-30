@@ -1,33 +1,21 @@
+import {
+  Navigation
+}
+from './Extension.js'
 export const Header = {
   logo : 'Mjs',
-  navigation : [
-    "Home",
-    "About",
-    "Contact"
-  ],
+  navigation : Navigation,
   render() {
     const containner = document.createElement('header')
 
     const label = document.createElement('h1')
     label.textContent = this.logo
 
-    const nav = document.createElement('nav')
-    const ul = document.createElement('ul')
-
-    this.navigation.forEach(item => {
-      const li = document.createElement('li')
-      const a = document.createElement('a')
-      a.href = `#${item.toLowerCase()}`
-      a.textContent = item
-      li.append(a)
-      ul.append(li)
-    })
-
-    nav.append(ul)
+    
 
     containner.append(
       label,
-      nav
+      this.navigation.render()
     )
     return containner
   }
