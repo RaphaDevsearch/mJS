@@ -1,7 +1,9 @@
 import {
   Navigation,
   Logo,
-  QuickLink
+  QuickLink,
+  CreateElement,
+  Divider
 } from './Extension.js'
 import {
   HeroPage
@@ -26,7 +28,9 @@ export const Main = {
     const title = document.createElement('h1')
     title.textContent = 'Main'
     containner.append(
-      HeroPage.render()
+      HeroPage.render(),
+      Divider.render()
+
     )
     return containner
   }
@@ -62,3 +66,14 @@ export const Footer = {
  * like component iside the footer
  */
 
+export const GridContainer  = {
+  container : CreateElement('div', { classList: ['grid-container'] }),
+  contents : [],  
+
+  render() {
+    this.contents.forEach(content => {
+      this.container.append(content);
+    });
+    return this.container;
+  }
+}

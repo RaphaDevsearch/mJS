@@ -86,3 +86,26 @@ export const QuickLink = {
     return nav;
   }
 };
+
+export const CreateElement = (tagName, attributes = {}) => {
+  const element = document.createElement(tagName);
+
+  Object.entries(attributes).forEach(([key, value]) => {
+    element[key] = value;
+  });
+
+  return element;
+};
+
+export const Divider = {
+
+  render() {
+    const hr = CreateElement('hr', { classList: ['divider'] });
+    Object.assign(hr.style, {
+      border: 'none',
+      borderTop: '1px solid #9b8b8b',
+      margin: '20px 0'
+    });
+    return hr
+  }
+}
