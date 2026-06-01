@@ -109,3 +109,27 @@ export const Divider = {
     return hr
   }
 }
+
+export const card = {
+  content : 'Card Content',
+  
+  
+  
+  render() {
+    /**
+     * we shoudl put this render her 
+     * for each rendre, we need to create new card element
+     */
+    const container = CreateElement('div', { classList: ['card'] });
+    Object.assign(container.style, {
+      border: '1px solid #962828',
+      borderRadius: '8px',
+      padding: '20px',
+      textAlign: 'center',
+      fontSize: '24px',
+      backgroundColor: '#f9f9f9'
+    });
+    container.append(this.content);
+    return container;
+  }
+}

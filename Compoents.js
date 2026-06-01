@@ -3,7 +3,8 @@ import {
   Logo,
   QuickLink,
   CreateElement,
-  Divider
+  Divider,
+  card,
 } from './Extension.js'
 import {
   HeroPage
@@ -27,10 +28,20 @@ export const Main = {
     const containner = document.createElement('main')
     const title = document.createElement('h1')
     title.textContent = 'Main'
+    // GridContainer.contents =[
+    //   card.render(),
+    //   card.render(),
+    //   card.render(),
+    // ]
+    GridContainer.contents.push(
+      card.render(),
+      card.render(),
+      card.render(),
+    )
     containner.append(
       HeroPage.render(),
-      Divider.render()
-
+      Divider.render(),
+      GridContainer.render()
     )
     return containner
   }
@@ -73,6 +84,11 @@ export const GridContainer  = {
   render() {
     this.contents.forEach(content => {
       this.container.append(content);
+    });
+    Object.assign(this.container.style, {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+      gap: '20px'
     });
     return this.container;
   }
