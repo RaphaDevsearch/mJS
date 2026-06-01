@@ -4,8 +4,8 @@ export const Logo ={
     link : '#'
   },
   render() {
-    const div = document.createElement('div')
-    const a = document.createElement('a')
+    const div = CreateElement('div');
+    const a = CreateElement('a');
 
     a.href = this.item.link
     a.textContent = this.item.name
@@ -66,14 +66,14 @@ export const QuickLink = {
 
   style : 'quick-links',
   render() {
-    const nav = document.createElement('nav');
-    const ul = document.createElement('ul');
+    const nav = CreateElement('nav');
+    const ul = CreateElement('ul');
     ul.classList.add(this.style)
 
     this.items.forEach(item => {
-      const li = document.createElement('li');
+      const li = CreateElement('li');
 
-      const a = document.createElement('a');
+      const a = CreateElement('a');
       a.href = item.href;
       a.textContent = item.label;
 
@@ -110,26 +110,80 @@ export const Divider = {
   }
 }
 
-export const card = {
-  content : 'Card Content',
-  
-  
-  
+export const Card = {
+  image: {
+    src: 'HERO.png',
+    alt: 'Card Image'
+  },
+
+  title: 'Learn JavaScript',
+
+  description:
+    'Build projects and improve your JavaScript skills step by step.',
+
+  action: {
+    label: 'Read More',
+    href: '#'
+  },
+
   render() {
-    /**
-     * we shoudl put this render her 
-     * for each rendre, we need to create new card element
-     */
-    const container = CreateElement('div', { classList: ['card'] });
-    Object.assign(container.style, {
-      border: '1px solid #962828',
-      borderRadius: '8px',
-      padding: '20px',
-      textAlign: 'center',
-      fontSize: '24px',
-      backgroundColor: '#f9f9f9'
+    const card = CreateElement('div', {
+      classList: ['card']
     });
-    container.append(this.content);
-    return container;
+
+    Object.assign(card.style, {
+      border: '1px solid #ddd',
+      borderRadius: '12px',
+      overflow: 'hidden',
+      backgroundColor: '#fff'
+    });
+
+    const image = CreateElement('img');
+    image.src = this.image.src;
+    image.alt = this.image.alt;
+
+    Object.assign(image.style, {
+      width: '100%',
+      display: 'block'
+    });
+
+    const body = CreateElement('div');
+
+    Object.assign(body.style, {
+      padding: '1rem'
+    });
+
+    const title = CreateElement('h3');
+    title.textContent = this.title;
+
+    const description = CreateElement('p');
+    description.textContent = this.description;
+
+    const button = CreateElement('a');
+    button.href = this.action.href;
+    button.textContent = this.action.label;
+
+    Object.assign(button.style, {
+      display: 'inline-block',
+      marginTop: '1rem',
+      padding: '0.75rem 1rem',
+      borderRadius: '6px',
+      textDecoration: 'none',
+      backgroundColor: '#2563eb',
+      color: '#fff'
+    });
+
+    body.append(
+      title,
+      description,
+      button
+    );
+
+    card.append(
+      image,
+      body
+    );
+
+    return card;
   }
-}
+};

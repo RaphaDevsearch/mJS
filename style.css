@@ -56,9 +56,9 @@ nav a:hover {
 /* Main */
 main {
   padding: 2rem;
-  border: 1px solid #831f1f;
+  /* border: 1px solid #831f1f; */
   min-height: 100vh;
-  background: rgb(85, 220, 235);
+  /* background: rgb(85, 220, 235); */
 }
 
 
