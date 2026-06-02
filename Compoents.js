@@ -156,7 +156,7 @@ export const Carousel = {
 
     Object.assign(footer.style, {
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: 'space-around',
       gap: '1rem',
       padding: '1rem'
     });
